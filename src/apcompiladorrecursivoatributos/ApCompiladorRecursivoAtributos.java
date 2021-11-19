@@ -9,9 +9,16 @@
 package apcompiladorrecursivoatributos;
 
 public class ApCompiladorRecursivoAtributos {
-    
-    static String cad = "(5*2) >= (9)¬";
     static String cad1 = "0123456789.";
+    static String aa = "(5*2) >= (9)¬";
+    static String bb = "3 + 1 >= 4 &  1 > 2¬";
+    static String cc = "3 + 1 >= 4 |  1 > 2¬";
+    static String dd = "2^3 + ((3*4)/2 + 1)¬";
+    static String ee = "(5*2) >= (9)¬";
+
+    static String cad = dd;
+   
+
     // variable indice es global y controla el indice del objwro lex1
     static int indice=0;
     static char sim=' ';
@@ -417,9 +424,11 @@ public static void pComparar(NoTerminal i1, NoTerminal i2, NoTerminal s2, NoTerm
 
     public static void procOR(NoTerminal i1, NoTerminal i2, NoTerminal nt){ // TODO OR en que sentido?
         nt.setValorLogico(i1.getValorLogico() || i2.getValorLogico());
+        nt.setRelacional(true);
     }
     public static void procAND(NoTerminal i1, NoTerminal i2, NoTerminal nt){ // TODO en que sentido es el and?
         nt.setValorLogico(i1.getValorLogico() && i2.getValorLogico());
+        nt.setRelacional(true);
     }
     public static void suma(NoTerminal nt1, NoTerminal nt2, NoTerminal nt){
         nt.setValor(nt1.getValor()+nt2.getValor());
